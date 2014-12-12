@@ -43,12 +43,20 @@ module.exports = function(grunt) {
       args = args.concat(['--tag', tag]);
     }
 
+    console.log("Failed");
+
+    var failedTests = grunt.option('failedTests');
+
+    if(failedTests){
+      args = args.concat(['--failedTests', failedTests]);
+    }
+
     grunt.log.writeln('Running nightwatchjs with args:' + util.inspect(args, { depth: null }));
-    require('child_process').spawn('./node_modules/.bin/nightwatch', args, {
+    require('child_process').spawn('nightwatch', args, {
       env: process.env,
       stdio: 'inherit'
     }).on('close', function(code) {
-      if (code !== 0) {
+      if (code !== 0 && grunt.option('skipExit')) {
         return done(false);
       }
       return done();
