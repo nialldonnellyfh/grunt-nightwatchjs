@@ -52,7 +52,7 @@ module.exports = function(grunt) {
     }
 
     grunt.log.writeln('Running nightwatchjs with args:' + util.inspect(args, { depth: null }));
-    require('child_process').spawn('nightwatch', args, {
+    require('child_process').spawn('./node_modules/.bin/nightwatch', args, {
       env: process.env,
       stdio: 'inherit'
     }).on('close', function(code) {
