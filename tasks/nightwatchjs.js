@@ -56,7 +56,7 @@ module.exports = function(grunt) {
       env: process.env,
       stdio: 'inherit'
     }).on('close', function(code) {
-      if (code !== 0 && grunt.option('skipExit')) {
+      if (code !== 0 && !grunt.option('skipExit')) {
         return done(false);
       }
       return done();
