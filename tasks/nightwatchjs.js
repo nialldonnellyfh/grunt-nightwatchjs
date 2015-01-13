@@ -37,13 +37,23 @@ module.exports = function(grunt) {
       args = args.concat(['--group', groups]);
     }
 
+    var skipGroups = grunt.option('skipgroup');
+
+    if(skipGroups){
+      args = args.concat(['--skipgroup', skipGroups]);
+    }
+
     var tag = grunt.option('tag');
 
     if(tag){
       args = args.concat(['--tag', tag]);
     }
 
-    console.log("Failed");
+    var skipTag = grunt.option('skiptag');
+
+    if(skipTag){
+      args = args.concat(['--skiptag', skipTag]);
+    }
 
     var failedTests = grunt.option('failedTests');
 
