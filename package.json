@@ -43,6 +43,6 @@
     "selenium"
   ],
   "dependencies": {
-    "nightwatch": "git://github.com/nialldonnellyfh/nightwatch.git#2c84e53218ee154d3f3d1644867d4963add008db"
+    "nightwatch": "git://github.com/nialldonnellyfh/nightwatch.git#a65a84b8ba0caf7e9da735a6b4876a699122a793"
   }
 }
