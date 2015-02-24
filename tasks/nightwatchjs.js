@@ -66,6 +66,11 @@ module.exports = function(grunt) {
       env: process.env,
       stdio: 'inherit'
     }).on('close', function(code) {
+      if(code !== 0){
+        grunt.event.emit('nightwatch.failure',code);
+      } else {
+        grunt.event.emit('nightwatch.success',code);
+      }
       if (code !== 0 && !grunt.option('skipExit')) {
         return done(false);
       }
